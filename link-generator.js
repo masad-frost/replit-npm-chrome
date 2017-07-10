@@ -1,7 +1,7 @@
 var packageName = document.title;
 
 var runkitLinkNode = document.querySelector('[href*=runkit]');
-runkitLinkNode.innerText = 'Test ' + packageName + ' on 2runkit';
+runkitLinkNode.innerText = 'Test ' + packageName + ' on runkit';
 
 var replitLinkListNode = document.createElement('li');
 replitLinkListNode.className = 'replit';
