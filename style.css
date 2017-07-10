@@ -53,10 +53,16 @@ body, html {
   display: flex;
 }
 
-#npm {
-  width: 100vw;
+.iframe-container {
+  flex-grow: 0.8;
 }
 
 #replit {
-  width: 100vw;
+  flex-grow: 1;
+}
+
+.seperator {
+  width: 5px;
+  height: 100%;
+  background-color: lightgray;
 }

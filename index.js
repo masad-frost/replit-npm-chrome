@@ -28,6 +28,7 @@ xhttp.onreadystatechange = function() {
       .getAttribute('href');
     // Get content-column as html string
     var npmContentEl = npmDoc.getElementsByClassName('content-column')[0];
+    npmContentEl.style.padding = '0 15px'
     var npmContentTempEl = document.createElement('div');
     npmContentTempEl.appendChild(npmContentEl);
     var npmContentHtml = npmContentTempEl.innerHTML;
