@@ -6,10 +6,8 @@ runkitLinkNode.innerText = 'Test ' + packageName + ' on 2runkit';
 var replitLinkListNode = document.createElement('li');
 replitLinkListNode.className = 'replit';
 var replitLinkNode = document.createElement('a');
-var pageUrl = chrome.extension.getURL("index.html");
-var requireCode = 'const ' + packageName + " = require('" + packageName + "');";
-var href = pageUrl;
-replitLinkNode.setAttribute('href', href);
+var pageHref = chrome.extension.getURL("index.html") + '?packageName=' + packageName;
+replitLinkNode.setAttribute('href', pageHref);
 replitLinkNode.innerText = 'Test ' + packageName + ' on repl.it';
 replitLinkListNode.append(replitLinkNode);
 
