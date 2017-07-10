@@ -1,15 +1,14 @@
 var packageName = document.title;
 
 var runkitLinkNode = document.querySelector('[href*=runkit]');
-runkitLinkNode.innerText = 'Test ' + packageName + ' on runkit';
+runkitLinkNode.innerText = 'Test ' + packageName + ' on 2runkit';
 
 var replitLinkListNode = document.createElement('li');
 replitLinkListNode.className = 'replit';
 var replitLinkNode = document.createElement('a');
+var pageUrl = chrome.extension.getURL("index.html");
 var requireCode = 'const ' + packageName + " = require('" + packageName + "');";
-var encodedRequireCode = encodeURIComponent(requireCode);
-var href =
-  'https://repl.it/languages/babel/?lite=true&code=' + encodedRequireCode;
+var href = pageUrl;
 replitLinkNode.setAttribute('href', href);
 replitLinkNode.innerText = 'Test ' + packageName + ' on repl.it';
 replitLinkListNode.append(replitLinkNode);

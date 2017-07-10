@@ -1,0 +1,1 @@
+console.log(chrome.extension.getURL("index.html"))
