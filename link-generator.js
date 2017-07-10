@@ -8,6 +8,7 @@ replitLinkListNode.className = 'replit';
 var replitLinkNode = document.createElement('a');
 var pageHref = chrome.extension.getURL("index.html") + '?packageName=' + packageName;
 replitLinkNode.setAttribute('href', pageHref);
+replitLinkNode.setAttribute('target', '_blank');
 replitLinkNode.innerText = 'Test ' + packageName + ' on repl.it';
 replitLinkListNode.append(replitLinkNode);
 
