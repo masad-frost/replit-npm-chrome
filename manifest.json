@@ -10,7 +10,6 @@
     "style.css"
   ],
   "content_scripts": [{
-    "css": ["link-generator.css"],
     "js": ["link-generator.js"],
     "matches": ["https://www.npmjs.com/package/*"]
   }]
