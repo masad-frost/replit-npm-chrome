@@ -1,16 +1,27 @@
-var packageName = document.title;
+var paths = window.location.pathname.split('/');
 
-var runkitLinkNode = document.querySelector('[href*=runkit]');
-runkitLinkNode.innerText = 'Test ' + packageName + ' on runkit';
+var packageName;
+if (paths.length === 4) {
+  // this means it's a scoped package i.e. /packages/@babel/core
+  packageName = paths.slice(2).join('/');
+} else {
+  packageName = paths[paths.length - 1];
+}
 
-var replitLinkListNode = document.createElement('li');
-replitLinkListNode.className = 'replit';
-var replitLinkNode = document.createElement('a');
+
+var runkitAnchor = document.querySelector('[href*=runkit]');
+// Change the text from because it does't specify the runkit
+runkitAnchor.innerText = 'Test ' + packageName + ' on runkit';
+
+// This is the <p> node
+var runkitContainer = runkitAnchor.parentElement;
+var container = runkitContainer.cloneNode(true);
+
+
+var anchorNode = container.querySelector('a');
 var pageHref = chrome.extension.getURL("index.html") + '?packageName=' + packageName;
-replitLinkNode.setAttribute('href', pageHref);
-replitLinkNode.setAttribute('target', '_blank');
-replitLinkNode.innerText = 'Test ' + packageName + ' on repl.it';
-replitLinkListNode.append(replitLinkNode);
+anchorNode.setAttribute('href', pageHref);
+anchorNode.setAttribute('target', '_blank');
+anchorNode.innerText = 'Test ' + packageName + ' on repl.it';
 
-var tryItBoxNode = runkitLinkNode.parentElement.parentElement;
-tryItBoxNode.insertBefore(replitLinkListNode, tryItBoxNode.childNodes[0]);
+runkitContainer.parentElement.insertBefore(container, runkitContainer);
